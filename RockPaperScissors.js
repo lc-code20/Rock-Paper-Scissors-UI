@@ -1,6 +1,6 @@
 console.log("Start!")
 
-    let moves = ['rock','paper','scissors']
+let moves = ['rock','paper','scissors']
 
     function computerPlay(){
       return moves[Math.floor(Math.random()*3)];
@@ -41,19 +41,22 @@ console.log("Start!")
     let playerPoints = 0
     let computerPoints = 0
 
-    function game(){
-      
+    function game(e){
 
       for (i=0;i<5;i++){
         console.log('Round '+ (i+1))
 
-        let input = window.prompt("Your move: ").toLowerCase();
+        //let input = window.prompt("Your move: ").toLowerCase();
+
+        let j = i+1;
+
+        gameMessage.textContent = 'Round ' + j + '\n Your move:';
         
-        while (input != 'rock'&&
-          input != 'paper'&&
-          input != 'scissors'){
-          input = window.prompt("Your move needs to be rock, paper or scissors: ").toLowerCase();
-        }
+        //while (input != 'rock'&&
+        //  input != 'paper'&&
+       //   input != 'scissors'){
+        //  input = window.prompt("Your move needs to be rock, paper or scissors: ").toLowerCase();
+       // }
 
         const computerSelection = computerPlay();
 
@@ -74,3 +77,41 @@ console.log("Start!")
       console.log('Your points: ' + playerPoints + '. Computer points: ' + computerPoints)
 
     }
+
+    let roundNumber = 2;
+
+    function game2(e){
+
+      //console.log(this);
+
+
+
+      round.textContent = 'Round ' + roundNumber;
+      roundNumber += 1;
+
+    }
+
+    
+
+    function gamePlay(e){
+
+      console.log(this.textContent);
+      //gameMessage.textContent = "update";
+
+      game2(e);
+
+    }
+
+    let round = document.querySelector('.round');
+    round.textContent = "Round 1";
+
+    //let gameMessage = document.querySelector('.gameMessage');
+    //gameMessage.textContent = 'Pick your move: '
+
+
+
+    const buttons = Array.from(document.querySelectorAll('.button'));
+    buttons.forEach(button => button.addEventListener('click', game2));
+    //window.addEventListener('keydown', playSound);
+
+    
