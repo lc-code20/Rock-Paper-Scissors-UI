@@ -28,6 +28,10 @@
     border-radius: 15px;
   }
 
+  button > *{
+    pointer-events: none;
+  }
+
   .gameMessage {
     -webkit-flex: 1;
     -ms-flex: 1;

@@ -83,8 +83,11 @@ let moves = ['rock','paper','scissors']
     function game2(e){
 
       //console.log(this);
-      console.log(e);
+      console.log(e.target.textContent);
 
+      userStatus.textContent = e.target.textContent.toLowerCase();
+
+      pcStatus.textContent = computerPlay();
 
       round.textContent = 'Round ' + roundNumber;
       roundNumber += 1;
@@ -98,10 +101,10 @@ let moves = ['rock','paper','scissors']
     //let gameMessage = document.querySelector('.gameMessage');
     //gameMessage.textContent = 'Pick your move: '
     let userStatus = document.querySelector('#userStatus.gameMessage');
-    userStatus.textContent = "check";
+    userStatus.textContent = "User";
 
     let pcStatus = document.querySelector('#pcStatus.gameMessage');
-    pcStatus.textContent = "check 2";
+    pcStatus.textContent = "PC";
 
 
     const buttons = Array.from(document.querySelectorAll('.button'));
