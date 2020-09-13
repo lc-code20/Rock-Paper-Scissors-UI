@@ -83,7 +83,7 @@ let moves = ['rock','paper','scissors']
     function game2(e){
 
       //console.log(this);
-
+      console.log(e);
 
 
       round.textContent = 'Round ' + roundNumber;
@@ -91,23 +91,17 @@ let moves = ['rock','paper','scissors']
 
     }
 
-    
-
-    function gamePlay(e){
-
-      console.log(this.textContent);
-      //gameMessage.textContent = "update";
-
-      game2(e);
-
-    }
 
     let round = document.querySelector('.round');
     round.textContent = "Round 1";
 
     //let gameMessage = document.querySelector('.gameMessage');
     //gameMessage.textContent = 'Pick your move: '
+    let userStatus = document.querySelector('#userStatus.gameMessage');
+    userStatus.textContent = "check";
 
+    let pcStatus = document.querySelector('#pcStatus.gameMessage');
+    pcStatus.textContent = "check 2";
 
 
     const buttons = Array.from(document.querySelectorAll('.button'));
