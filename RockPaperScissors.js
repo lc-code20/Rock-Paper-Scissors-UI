@@ -42,7 +42,7 @@ let moves = ['rock','paper','scissors']
     let computerPoints = 0
 
     function game(e){
-
+      /*
       for (i=0;i<5;i++){
         console.log('Round '+ (i+1))
 
@@ -63,6 +63,7 @@ let moves = ['rock','paper','scissors']
         console.log(playRound(input, computerSelection))
 
       }
+      */
 
       console.log('Game end ');
 
@@ -78,11 +79,19 @@ let moves = ['rock','paper','scissors']
 
     }
 
-    let roundNumber = 2;
+    let roundNumber = 1;
 
     function game2(e){
 
       //console.log(this);
+      if (roundNumber==6){
+        alert("Game resets");
+
+        roundNumber = 1;
+        round.textContent = 'Start';
+        return;
+      }
+
       console.log(e.target.textContent);
 
       userStatus.textContent = e.target.textContent.toLowerCase();
@@ -96,7 +105,7 @@ let moves = ['rock','paper','scissors']
 
 
     let round = document.querySelector('.round');
-    round.textContent = "Round 1";
+    round.textContent = "Start";
 
     //let gameMessage = document.querySelector('.gameMessage');
     //gameMessage.textContent = 'Pick your move: '
@@ -105,6 +114,12 @@ let moves = ['rock','paper','scissors']
 
     let pcStatus = document.querySelector('#pcStatus.gameMessage');
     pcStatus.textContent = "PC";
+
+    let userPoints = document.querySelector('#userPoints.gameMessage');
+    userPoints.textContent = "0";
+
+    let pcPoints = document.querySelector('#pcPoints.gameMessage');
+    pcPoints.textContent = "0";
 
 
     const buttons = Array.from(document.querySelectorAll('.button'));
