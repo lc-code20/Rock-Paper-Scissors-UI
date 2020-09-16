@@ -8,7 +8,7 @@ let moves = ['rock','paper','scissors']
     
     function rulesWin(move){
       if (move==='rock'){
-        return 'Rock beats Paper';
+        return 'Rock beats Scissors';
       }
       if (move==='paper'){
         return 'Paper beats Rock';
@@ -83,14 +83,8 @@ let moves = ['rock','paper','scissors']
 
     function game2(e){
 
-      //console.log(this);
-      if (roundNumber==6){
-        alert("Game resets");
-
-        roundNumber = 1;
-        round.textContent = 'Start';
-        return;
-      }
+      round.textContent = 'Round ' + roundNumber;
+      
 
       console.log(e.target.textContent);
 
@@ -98,17 +92,31 @@ let moves = ['rock','paper','scissors']
 
       pcStatus.textContent = computerPlay();
 
-      round.textContent = 'Round ' + roundNumber;
+      roundResult.textContent = playRound(userStatus.textContent,pcStatus.textContent);
+
+      userPoints.textContent = playerPoints;
+      pcPoints.textContent = computerPoints;
+
+      console.log("round number: " + roundNumber);
       roundNumber += 1;
 
+      if (roundNumber==6){
+        //alert("Game resets");
+
+        roundNumber = 1;
+        playerPoints = 0;
+        computerPoints = 0;
+
+        return;
+      }
+
+      
     }
 
 
     let round = document.querySelector('.round');
     round.textContent = "Start";
 
-    //let gameMessage = document.querySelector('.gameMessage');
-    //gameMessage.textContent = 'Pick your move: '
     let userStatus = document.querySelector('#userStatus.gameMessage');
     userStatus.textContent = "User";
 
@@ -116,10 +124,13 @@ let moves = ['rock','paper','scissors']
     pcStatus.textContent = "PC";
 
     let userPoints = document.querySelector('#userPoints.gameMessage');
-    userPoints.textContent = "0";
+    userPoints.textContent = playerPoints;
 
     let pcPoints = document.querySelector('#pcPoints.gameMessage');
-    pcPoints.textContent = "0";
+    pcPoints.textContent = computerPoints;
+
+    let roundResult = document.querySelector('#roundResult.gameMessage');
+    roundResult.textContent = "check";
 
 
     const buttons = Array.from(document.querySelectorAll('.button'));
