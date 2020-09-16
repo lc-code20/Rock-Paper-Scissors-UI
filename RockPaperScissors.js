@@ -53,8 +53,6 @@ let moves = ['rock','paper','scissors']
         gameEnd.textContent= "You lose";
       }
 
-      //console.log('Your points: ' + playerPoints + '. Computer points: ' + computerPoints)
-
     }
 
     let roundNumber = 1;
